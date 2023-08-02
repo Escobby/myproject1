@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{% if form.instance.pk %}Update{% else %}Create{% endif %} Department</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #ffffff;
+            color: #000000;
+            text-align: center;
+            margin: 40px;
+        }
+        h1 {
+            color: #333333;
+        }
+        .back-link {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            text-decoration: none;
+            color: #ff6c00;
+            font-size: 20px;
+        }
+        .back-link:before {
+            content: "← ";
+        }
+        .back-link:hover {
+            text-decoration: underline;
+        }
+        form {
+            background-color: #f9f9f9;
+            padding: 20px;
+            border: 1px solid #e0e0e0;
+            box-shadow: 0px 0px 10px rgba(0,0,0,0.1);
+            display: inline-block;
+            text-align: left;
+            max-width: 400px;
+        }
+        label {
+            display: block;
+            margin-bottom: 8px;
+        }
+        input[type="text"] {
+            padding: 10px 20px;
+            border: none;
+            width: 100%;
+            margin-bottom: 20px;
+            box-sizing: border-box;
+        }
+        input[type="submit"] {
+            background-color: #ff6c00;
+            padding: 10px 20px;
+            border: none;
+            color: #ffffff;
+            cursor: pointer;
+            font-size: 1em;
+            width: 100%;
+        }
+        input[type="submit"]:hover {
+            background-color: #ff8800;
+        }
+    </style>
+</head>
+<body>
+    <a href="{% url 'read_departments' %}" class="back-link">Back to Departments</a>
+    <h1>{% if form.instance.pk %}Update{% else %}Create{% endif %} Department</h1>
+    <form method="post">
+        {% csrf_token %}
+        <label>ID:</label>
+        <input type="text" name="department_id" required>
+        <label>Name:</label>
+        <input type="text" name="department_name" required>
+        <input type="submit" value="{% if form.instance.pk %}Update{% else %}Create{% endif %}">
+    </form>
+</body>
+</html>
