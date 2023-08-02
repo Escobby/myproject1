@@ -2,7 +2,7 @@
 <html>
 {% include 'menu.html' %}
 <head>
-    <title>Departments</title>
+    <title>Machines</title>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.3/css/jquery.dataTables.css">
     <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.js"></script>
@@ -54,10 +54,10 @@
     </style>
 </head>
 <body>
-    <h1>Departments</h1>
-    <button onclick="window.location.href='{% url 'create_department' %}'">Create New Department</button>
-    
-    <table id="departmentsTable">
+    <h1>Machines</h1>
+     <button onclick="window.location.href='{% url 'create_machine' %}'">Create New Machine</button>
+
+     <table id="machineTable">
         <thead>
             <tr>
                 <th>ID</th>
@@ -66,21 +66,22 @@
             </tr>
         </thead>
         <tbody>
-            {% for department in department_list %}
+            {% for machine in machine_list %}
             <tr>
-                <td>{{ department.0 }}</td>
-                <td>{{ department.1}}</td>
+                <td>{{ machine.0 }}</td>
+                <td>{{ machine.1}}</td>
                 <td>
-                    <a href="{% url 'update_department' department.0 %}">Update</a> |
-                    <a href="{% url 'delete_department' department.0 %}">Delete</a>
+                    <a href="{% url 'update_machine' machine.0 %}">Update</a> |
+                    <a href="{% url 'delete_machine' machine.0 %}">Delete</a>
                 </td>
             </tr>
             {% endfor %}
         </tbody>
     </table>
+    
     <script>
         $(document).ready(function() {
-            $('#departmentsTable').DataTable();
+            $('#machineTable').DataTable();
         });
     </script>
 </body>

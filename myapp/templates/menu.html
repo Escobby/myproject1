@@ -1,0 +1,44 @@
+<!-- menu.html -->
+<div id="menu">
+    <ul>
+        <h1>Main Menu</h1>
+        <li><a href="{% url 'read_areas' %}">Areas</a></li>
+        <li><a href="{% url 'read_departments' %}">Departments</a></li>
+        <li><a href="{% url 'read_subdepartments' %}">Subdepartments</a></li>
+        <li><a href="{% url 'read_machines' %}">Machines</a></li>
+    </ul>
+</div>
+<style>
+    #menu {
+        width: 200px;
+        position: fixed;
+        top: 0;
+        left: 0;
+        height: 100%;
+        background-color: #333;
+        overflow: auto;
+    }
+    #menu h1 { 
+        color: white;
+        text-align: left; /* Align the title to the left as well */
+        padding-left: 10px; /* Optional padding for the title */
+    }
+    #menu ul {
+        padding: 0;
+        margin: 0;
+        list-style-type: none;
+    }
+    #menu ul li {
+        text-align: left; /* Change this line */
+        padding: 10px;
+    }
+    #menu ul li a {
+        color: #fff;
+        text-decoration: none;
+        display: block;
+        padding: 10px;
+    }
+    #menu ul li a:hover {
+        background-color: #575757;
+    }
+</style>

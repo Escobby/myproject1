@@ -2,7 +2,7 @@
 <html>
 {% include 'menu.html' %}
 <head>
-    <title>Departments</title>
+    <title>Subdepartments</title>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.3/css/jquery.dataTables.css">
     <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.js"></script>
@@ -19,21 +19,21 @@
         }
         a, button {
             text-decoration: none;
-            color: #ff6c00; /* Orange color for links */
+            color: #ff6c00;
         }
         a:hover, button:hover {
             text-decoration: underline;
         }
         button {
-            background-color: orangered; /* Orange background for the button */
+            background-color: orangered;
             padding: 10px 20px;
             border: none;
-            color: #ffffff; /* White text for the button */
+            color: #ffffff;
             cursor: pointer;
             font-size: 1em;
         }
         button:hover {
-            background-color: orange; /* Slightly lighter orange on hover */
+            background-color: orange;
         }
         table {
             width: 100%;
@@ -54,25 +54,28 @@
     </style>
 </head>
 <body>
-    <h1>Departments</h1>
-    <button onclick="window.location.href='{% url 'create_department' %}'">Create New Department</button>
-    
-    <table id="departmentsTable">
+    <h1>SubDepartments</h1>
+    <button onclick="window.location.href='{% url 'create_subdepartment' %}'">Create New SubDepartment</button>
+    <table id="subdepartmentsTable">
         <thead>
             <tr>
-                <th>ID</th>
-                <th>Name</th>
+                <th>
+                 ID
+                </th>
+                <th>
+                 Name
+                </th>
                 <th>Actions</th>
             </tr>
         </thead>
         <tbody>
-            {% for department in department_list %}
+            {% for subdepartment in subdepartment_list %}
             <tr>
-                <td>{{ department.0 }}</td>
-                <td>{{ department.1}}</td>
+                <td>{{ subdepartment.0 }}</td>
+                <td>{{ subdepartment.1 }}</td>
                 <td>
-                    <a href="{% url 'update_department' department.0 %}">Update</a> |
-                    <a href="{% url 'delete_department' department.0 %}">Delete</a>
+                    <a href="{% url 'update_subdepartment' subdepartment.0 %}">Update</a> |
+                    <a href="{% url 'delete_subdepartment' subdepartment.0 %}">Delete</a>
                 </td>
             </tr>
             {% endfor %}
@@ -80,7 +83,7 @@
     </table>
     <script>
         $(document).ready(function() {
-            $('#departmentsTable').DataTable();
+            $('#subdepartmentsTable').DataTable();
         });
     </script>
 </body>
